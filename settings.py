@@ -11,6 +11,8 @@ RED = (255, 0, 0)
 YELLOW = (255, 255, 0)
 BROWN = (106, 55, 5)
 CYAN = (0, 255, 255)
+PARCHMENT = (241, 241, 212)
+BLUE = (0, 0, 150)
 
 #game settings
 WIDTH = 1024 # 16*64 || 32*32 || 64*16
@@ -23,14 +25,19 @@ TILESIZE = 64
 GRIDWIDTH = WIDTH / TILESIZE
 GRIDHEIGHT = HEIGHT / TILESIZE
 
-WALL_IMG = 'tileGreen_39.png'
+#Inventory Screen Settings
+PARCHMENT_LEFT_EDGE = 200
+
+
 
 #Player Settings
+PLAYER_WIDTH = 49
+PLAYER_HEIGHT = 43
 PLAYER_HEALTH = 100
-PLAYER_SPEED = 300
+PLAYER_SPEED = 200
 PLAYER_ROT_SPEED = 250 #in degrees per second
 PLAYER_IMG = 'manBlue_gun.png'
-PLAYER_HIT_RECT = pg.Rect(0, 0, 35, 35)
+PLAYER_HIT_RECT = pg.Rect(0, 0, 32, 32)
 BARREL_OFFSET = vec(30, 10)
 
 #Inventory Settings
@@ -84,6 +91,7 @@ WEAPONS['automatic rifle'] = {'bullet_speed': 1400,
 DAMAGE_VARIANCE = [.1, .5, .6, .6, .7, .7, .7, .8, .8, .8, .8, .9, .9, .9, .9, .9,
                    1, 1, 1, 1, 1, 1, 1, 1, 1.2, 1.2, 1.2, 1.2, 1.2,
                    1.4, 1.4, 1.4, 1.4, 1.6, 1.6, 1.6, 1.8, 1.8, 2, 10]
+
 #list to decide if rifle bullet will keep going on collision with mob
 RIFLE_BULLET_STRENGTH = [0, 0, 1, 1, 1]
 BULLET_SPEED = 800
@@ -93,17 +101,26 @@ KICKBACK = 0
 GUN_SPREAD = 5
 BULLET_DAMAGE = 100
 
+#Obstacle Settings
+TREE_HEALTH = 200
+TREE_IMAGES = {'evergreen': 'evergreen.png'
+               }
+TREES_LIST = ['evergreen']
+TREE_HIT_RECT = pg.Rect(0, 0, 10, 40)
+
 
 #Mob Settings
+MOB_WIDTH = 35
+MOB_HEIGHT = 43
 MOB_IMG = 'zombie1_hold.png'
-MOB_SPEEDS = [75, 100, 120, 130, 150, 150, 150, 150, 150, 175, 250]
+MOB_SPEEDS = [50, 66, 80, 83, 100, 100, 100, 100, 100, 116, 166]
 MOB_HIT_RECT = pg.Rect(0, 0, 30, 30)
 MOB_HEALTH = 100
 MOB_DAMAGE = 10
 MOB_KNOCKBACK = 20
 AVOID_RADIUS = 50
-DETECT_RADIUS = 500
-BULLET_DETECT_RADIUS = 200
+DETECT_RADIUS = 50
+BULLET_DETECT_RADIUS = 20
 
 #Effects
 MUZZLE_FLASHES = ['whitePuff15.png', 'whitePuff16.png', 'whitePuff17.png',
@@ -118,6 +135,8 @@ LIGHT_MASK = 'light_350_med.png'
 
 #Layers
 WALL_LAYER = 1
+TREE_LAYER = 4
+GROUND_LAYER = 1
 PLAYER_LAYER = 2
 BULLET_LAYER = 3
 MOB_LAYER = 2
@@ -125,12 +144,21 @@ EFFECTS_LAYER = 4
 ITEMS_LAYER = 1
 
 #Items
+WALL_IMG = 'tileGreen_39.png'
 ITEM_IMAGES = {'health': 'health_pack.png',
-               'shotgun': 'shotgun.png'
+               'shotgun': 'shotgun.png',
+               'wood': 'wood.png',
+               'stone': 'stone.png',
+               'knife': 'knife.png'
                }
+
+
+
+ITEMS = []
+ITEM_HIT_RECT = pg.Rect(0, 0, 16, 16)
 HEALTH_PACK_AMOUNT = 30
-BOB_RANGE = 15
-BOB_SPEED = 0.4
+BOB_RANGE = 1
+BOB_SPEED = 0
 
 #Sounds
 BG_MUSIC = 'espionage.ogg'
@@ -152,3 +180,10 @@ EFFECTS_SOUNDS = {'level_start': 'level_start.wav',
 
 #Levels
 LEVELS = ['tiled1.tmx', 'level2.tmx']
+
+
+#Menu Info
+TITLE_FONT = 'Detroit DEMO.ttf'
+MAIN_MENU_BUTTONS = ['pawns', 'build', 'zones', 'animals']
+MAIN_MENU_TEXT_COLOR = WHITE
+BUTTON_FONT = 'Detroit DEMO.ttf'
